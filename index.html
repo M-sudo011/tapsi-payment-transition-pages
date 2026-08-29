@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="نمونه تعاملی صفحات انتقال پرداخت تپسی">
+    <title>صفحات انتقال پرداخت تپسی</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body data-screen="redirect" data-variant="a" data-slow="false" data-result="success">
+    <main class="payment-shell" id="payment-shell" aria-live="polite">
+      <section class="top-region">
+        <header class="brand" aria-label="تپسی">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span></span>
+          <span>تپسی</span>
+        </header>
+
+        <div class="state-visual" aria-hidden="true">
+          <div class="spinner visual-spinner"></div>
+
+          <div class="journey-visual">
+            <div class="journey-node journey-origin" id="journey-origin">تپسی</div>
+            <div class="journey-path"><span></span></div>
+            <div class="journey-node journey-destination" id="journey-destination">درگاه</div>
+          </div>
+
+          <div class="hero-icon"><span class="hero-spinner"></span></div>
+
+          <div class="result-mark" id="result-mark">
+            <span class="result-mark-symbol" id="result-mark-symbol">✓</span>
+          </div>
+        </div>
+
+        <div class="state-copy">
+          <h1 id="state-title">در حال انتقال به درگاه پرداخت</h1>
+          <p id="state-description">لطفاً چند لحظه منتظر بمانید.</p>
+        </div>
+      </section>
+
+      <section class="bottom-region">
+        <ol class="journey-steps" id="journey-steps" aria-label="مراحل پرداخت">
+          <li>
+            <span class="step-number">۱</span>
+            <span class="step-text" id="step-one-text">آماده‌سازی پرداخت</span>
+            <span class="step-status is-complete" id="step-one-status">✓</span>
+          </li>
+          <li>
+            <span class="step-number">۲</span>
+            <span class="step-text" id="step-two-text">اتصال به درگاه</span>
+            <span class="step-status is-active" id="step-two-status"></span>
+          </li>
+        </ol>
+
+        <aside class="status-note" id="status-note">
+          <span class="note-icon" id="note-icon" aria-hidden="true">!</span>
+          <span>
+            <strong id="note-title">فیلترشکن را خاموش کنید</strong>
+            <span id="note-description">برای اتصال بهتر به درگاه پرداخت، فیلترشکن (VPN) خود را خاموش کنید.</span>
+          </span>
+        </aside>
+
+        <button class="return-button" id="return-button" type="button" hidden>بازگشت به تپسی</button>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden>
+      در محصول واقعی، این دکمه اپ تپسی را باز می‌کند.
+    </div>
+
+    <button class="controls-launcher" id="controls-launcher" type="button" aria-controls="demo-controls" aria-expanded="false">
+      کنترل نمونه
+    </button>
+
+    <aside class="demo-controls" id="demo-controls" aria-label="کنترل حالت‌های نمونه" hidden>
+      <div class="controls-heading">
+        <strong>کنترل نمونه</strong>
+        <button id="controls-close" type="button" aria-label="بستن کنترل‌ها">×</button>
+      </div>
+
+      <fieldset>
+        <legend>صفحه</legend>
+        <div class="segmented-control" data-controller="screen">
+          <button type="button" data-value="redirect" aria-pressed="true">انتقال به درگاه</button>
+          <button type="button" data-value="capture" aria-pressed="false">تکمیل پرداخت</button>
+          <button type="button" data-value="result" aria-pressed="false">نتیجه</button>
+        </div>
+      </fieldset>
+
+      <div class="controls-row">
+        <fieldset>
+          <legend>طرح</legend>
+          <div class="segmented-control compact" data-controller="variant">
+            <button type="button" data-value="a" aria-pressed="true">A</button>
+            <button type="button" data-value="b" aria-pressed="false">B</button>
+            <button type="button" data-value="c" aria-pressed="false">C</button>
+          </div>
+        </fieldset>
+
+        <label class="switch-control">
+          <span>حالت کند</span>
+          <input id="slow-toggle" type="checkbox">
+          <span class="switch-track" aria-hidden="true"><span></span></span>
+        </label>
+      </div>
+
+      <fieldset id="result-controller" disabled>
+        <legend>نتیجه پرداخت</legend>
+        <div class="segmented-control" data-controller="result">
+          <button type="button" data-value="success" aria-pressed="true">موفق</button>
+          <button type="button" data-value="failure" aria-pressed="false">ناموفق</button>
+        </div>
+      </fieldset>
+    </aside>
+
+    <script src="app.js"></script>
+  </body>
+</html>
